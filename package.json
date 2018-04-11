@@ -1,7 +1,7 @@
 {
   "name": "red-beryl",
-  "version": "1.0.0",
-  "description": "A personal bot for Discord.",
+  "version": "1.3",
+  "description": "A personal bot for Discord",
   "main": "red-beryl.js",
   "engines": {
   "node": "8.11.1",
