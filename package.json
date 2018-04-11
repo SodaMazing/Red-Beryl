@@ -1,0 +1,32 @@
+{
+  "name": "red-beryl",
+  "version": "1.0.0",
+  "description": "A personal bot for Discord.",
+  "main": "red-beryl.js",
+  "engines": {
+  "node": "8.11.1",
+  "npm": "5.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node red-beryl.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SodaMazing/red-beryl.git"
+  },
+  "keywords": [
+    "heroku",
+    "discord.js"
+  ],
+  "author": "Soda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SodaMazing/red-beryl/issues"
+  },
+  "homepage": "https://github.com/SodaMazing/red-beryl#readme",
+  "dependencies": {
+    "discord.js": "^11.3.2",
+    "nodemon": "^1.17.3"
+  }
+}
