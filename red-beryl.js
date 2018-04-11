@@ -78,7 +78,7 @@ bot.on("message", msg => {
 	  "\n'b!berhaps' posts Perhaps :b:eter" +
 	  "\n'b!jerhaps' posts Perhaps Jason" +
 	  "\n'b!lit' breaks it down" +
-	  "\n'b!lit2' ditto" +
+	  "\n'b!deku' ditto" +
 	  "\n'b!ascii' posts Ascii-chan" +
 	  "\n'b!youngotisjizz' checks the dairy section" +
 	  "\n'b!iamwood' notifies you that he is indeed wood" +
@@ -167,10 +167,10 @@ bot.on("message", msg => {
 		msg.channel.send("https://i.imgur.com/nqQTXa9.gif");
 		console.log(cmdLog("lit", msg));
       }
-	//lit2
-	else if (cmd("lit2", msg)) {
+	//deku
+	else if (cmd("deku", msg)) {
 		msg.channel.send("https://cdn.discordapp.com/attachments/280881544334278657/432923834136395776/Literal_Heck.gif");
-		console.log(cmdLog("lit2", msg));
+		console.log(cmdLog("deku", msg));
       }
 	//ascii
 	else if (cmd("ascii", msg)) {
