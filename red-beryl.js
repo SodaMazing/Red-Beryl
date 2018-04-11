@@ -1,7 +1,5 @@
 ﻿//Red Beryl
 
-const login = require('./login.json');
-
 const game = require('./game.json');
 
 var Discord = require("discord.js");
@@ -46,7 +44,7 @@ bot.on('ready', () => {
 
 /*Login --
   Logs code into Red Beryl*/
-bot.login(login.token);
+bot.login(process.env.BOT_TOKEN);
 
 /*Message Response --
   Responds to messages and sets commands or variables*/
