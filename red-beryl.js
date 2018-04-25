@@ -5,7 +5,7 @@ const game = require('./game.json');
 var Discord = require("discord.js");
 	bot = new Discord.Client();
 	pre = "b!";
-	perm = "You do not have the Rhodochrosite role!";
+	perm = "You are not a Rhodochrosite";
 	
 /*Message Checker --
   Defines if a code is a valid command*/
@@ -66,7 +66,7 @@ bot.on("message", msg => {
 	  //General
 	  msg.channel.send("Hello, it is i, Red Beryl. Here are my commands:" +
       "\n```'b!help' displays this message" +
-	  "\n'b!help admin' will give you a list of the admin commands" +
+	  "\n'b!help rhodochrosite' will give you a list of the Rhodochrosite commands" +
 	  "\n'b!ping' will test whether the bot is active" +
 	  "\n'b!maya' posts a random Maya Cleavage" +
 	  "\n'b!nuke [place]' will nuke the bad guys" +
@@ -116,13 +116,13 @@ bot.on("message", msg => {
         "\n```'b!map [blank, or climate]' will post a map of the fifth World; type 'b!map ?' for more info" +
         "\n'b!asc [conlang-name] [question]' will ask a question in that conlang```");
       }
-      //Info concerning Admin commands
-	  if (cmd("help admin", msg))  {
-		msg.channel.send("This is the list of admin commands:" +
-		"\n```'b!help admin' displays this message" +
-		"\n'b!role' checks if you can use the admin commands (you need an admin role to use them)" +
+      //Info concerning Rhodochrosite commands
+	  if (cmd("help rhodochrosite", msg))  {
+		msg.channel.send("This is the list of Rhodochrosite commands:" +
+		"\n```'b!help rhodochrosite' displays this message" +
+		"\n'b!role' checks if you can use the Rhodochrosite commands (You need the Rhodochrosite role to use them)" +
 		"\n'b!delete [message number]' deletes messages" +
-		"\n'b!say [something]' gets Red Beryl to say something" +
+		"\n'b!say [something]' gets me to say something" +
 		"\n'b!warn [@user] [reason]' warns that user, sending both you and them a message" +
 		"\n'b!ban [@user] [reason]' unleashes a banhammer upon that user, sending both you and them a message```");
       }
@@ -380,7 +380,7 @@ bot.on("message", msg => {
 	//role
 	else if (cmd("role", msg)) {
 	  if (role(msg.member)) {
-	  msg.channel.send("User has admin roles!"); //User has sufficient roles
+	  msg.channel.send("You are a Rhodochrosite"); //User has sufficient roles
 	  }
 	  else {
 	  msg.channel.send(perm); //Has no sufficient roles
@@ -511,7 +511,7 @@ bot.on("message", msg => {
 			msg.channel.send("https://i.ytimg.com/vi/FaKnwWj4lZ4/maxresdefault.jpg");
 		//Users
 	  }else if (msg.guild.member(msg.mentions.users.first()) != null) {
-			msg.channel.send("Nice try " + (msg.mentions.users.first().username) + ".");
+			msg.channel.send("Nice try.");
       }else {
 		msg.channel.send("Nuke target not found! Type ``b!nuke help`` for more infos!");
       }
@@ -915,8 +915,8 @@ bot.on("message", msg => {
       console.log(cmdLog('joke', msg));
      }
 
-	/*------------------------------ADMIN-COMMANDS-------------------------------
-    Commands meant to be used only by admins, includes a single decline message*/
+	/*------------------------------RHODOCHROSITE-COMMANDS-------------------------------
+    Commands meant to be used only by Rhodochrosites, includes a single decline message*/
 
 	//each command needs the role checker   if (role(msg.member))
     //delete (deltes set amt. of messages)
