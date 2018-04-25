@@ -1,14 +1,12 @@
 {
   "name": "red-beryl",
-  "version": "1.0.0",
-  "description": "A personal bot for Discord",
+  "description": "I am Red Beryl, and i serve the Rhodochrosites.",
   "main": "red-beryl.js",
   "engines": {
   "node": "8.11.1",
   "npm": "5.6.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node red-beryl.js"
   },
   "repository": {
@@ -16,11 +14,12 @@
     "url": "git+https://github.com/SodaMazing/red-beryl.git"
   },
   "keywords": [
-    "heroku",
-    "discord.js"
+    "red-beryl",
+    "discord.js",
+    "heroku"
   ],
-  "author": "Soda",
-  "license": "ISC",
+  "author": "SodaMazing",
+  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/SodaMazing/red-beryl/issues"
   },
