@@ -1,2 +1,2 @@
 # Red Beryl
-A personal bot for Discord
+A personal Discord bot
