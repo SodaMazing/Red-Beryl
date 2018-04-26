@@ -38,7 +38,7 @@ function cmdLog(x, msg){
 /*Login Processes --
   Things to do when a login is successful*/
 bot.on('ready', () => {
-  console.log('Logged in.'); //Login Message
+  console.log('Ready!'); //Login Message
   bot.user.setGame(game.game, game.stream);
 });
 
