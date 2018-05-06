@@ -104,16 +104,6 @@ bot.on("message", msg => {
         "\n```'b!map [blank, or climate]' will post a map of the fifth World; type 'b!map ?' for more info" +
         "\n'b!asc [conlang-name] [question]' will ask a question in that conlang```");
       }
-      //Info concerning Rhodochrosite commands
-	  if (cmd("help rhodochrosite", msg))  {
-		msg.channel.send("This is the list of Rhodochrosite commands:" +
-		"\n```'b!help rhodochrosite' displays this message" +
-		"\n'b!role' checks if you can use the Rhodochrosite commands (You need the Rhodochrosite role to use them)" +
-		"\n'b!delete [message number]' deletes messages" +
-		"\n'b!say [something]' gets me to say something" +
-		"\n'b!warn [@user] [reason]' warns that user, sending both you and them a message" +
-		"\n'b!ban [@user] [reason]' unleashes a banhammer upon that user, sending both you and them a message```");
-      }
 	  //Friendly hint to better use the comment area a second time for commands
       msg.channel.send("Remember to join the Rhodochrosites.");
       console.log(cmdLog("help", msg));
