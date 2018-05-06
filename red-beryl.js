@@ -5,8 +5,7 @@ const game = require('./game.json');
 var Discord = require("discord.js");
 	bot = new Discord.Client();
 	pre = "b!";
-	perm = "You are not a Rhodochrosite";
-	
+
 /*Message Checker --
   Defines if a code is a valid command*/
 function cmd(str, msg) {
@@ -17,16 +16,6 @@ function cmd(str, msg) {
   Discerns one piece of info from the rest*/
 function pluck(array){
   return array.map(function(item){return item["name"];});
-}
-
-/*Role Checker --
-  Checks if a user has a role*/
-function role(mem) {
-  if(pluck(mem.roles).includes("Rhodochrosite")) {
-	return true; //has the Rhodochrosite role
-  }else{
-	return false; //does not have the Rhodochrosite role
-  }
 }
 
 /*Console Logbook --
@@ -66,7 +55,6 @@ bot.on("message", msg => {
 	  //General
 	  msg.channel.send("Hello, it is i, Red Beryl. Here are my commands:" +
       "\n```'b!help' displays this message" +
-	  "\n'b!help rhodochrosite' will give you a list of the Rhodochrosite commands" +
 	  "\n'b!ping' will test whether the bot is active" +
 	  "\n'b!maya' posts a random Maya Cleavage" +
 	  "\n'b!nuke [place]' will nuke the bad guys" +
@@ -89,7 +77,7 @@ bot.on("message", msg => {
 	  "\n'b!chew' chews" +
 	  "\n'b!youropinion' thats just like, your opinion man" +
 	  "\n'b!ihadaboner' lets you in on a secret" +
-      "\n'b!info [pagename]' will display info from that YTP Wiki page, but currently only works for a select few pages" +
+	"\n'b!info [pagename]' will display info from that YTP Wiki page, but currently only works for a select few pages" +
 	  "\n'b!ask [question]' asks a yes/no question" +
       "\n'b!advice [problem]' will give you some life-lessons, such as 'getrichquick' or more" +
       "\n'b!miltrupee [number]' converts Dollars to Miltrupees (Hyrule Currency)" +
@@ -914,100 +902,4 @@ bot.on("message", msg => {
       }
       console.log(cmdLog('joke', msg));
      }
-
-	/*------------------------------RHODOCHROSITE-COMMANDS-------------------------------
-    Commands meant to be used only by Rhodochrosites, includes a single decline message*/
-
-	//each command needs the role checker   if (role(msg.member))
-    //delete (deltes set amt. of messages)
-	else if(cmd("delete", msg) || cmd("clear", msg)){
-        if (role(msg.member)) {
-          var messageNumber;
-          if(arg.length === 1){
-            messageNumber = 2; //default messages to delete is 2
-          } else {
-              messageNumber=parseInt(arg[1]) + 1;
-          }
-          msg.channel.fetchMessages({limit: messageNumber}).then(messages => msg.channel.bulkDelete(messages)); //deletes messages
-          msg.channel.send(arg[1] + " messages deleted!"); //posts message about deletion
-          console.log(cmdLog(messageNumber + " messages deleted", msg));
-        }else{
-          msg.channel.send(perm);
-        }
-      }
-    //spammy command
-    else if(cmd("dos", msg)) {
-        if (role(msg.member)) {
-          for (var i = 0; i < arg[1]; i++) {
-            msg.channel.send("spam: " + (i+1) + " of " + arg[1] + "!!!");
-          }
-          console.log(cmdLog("spam", msg));
-        }else{
-          msg.channel.send(perm);
-        }
-      }
-    //banhammer!
-    else if(cmd("ban", msg)) {
-        if (role(msg.member)) {
-          if (arg.length < 2) {
-            msg.channel.send("Not enough arguments! Use the following syntax! ``b!ban [@user-to-be-banned] [reason]``");
-          }else{
-            if (msg.guild.member(msg.mentions.users.first()) === null) {
-				//checks if no user is mentioned
-				msg.channel.send("No proper user mentioned! Use the following syntax! ``b!ban [@user-to-be-banned] [reason]``")
-            }else{
-				msg.guild.member(msg.mentions.users.first()).ban();
-				msg.mentions.users.first().send("You have been banned by " + msg.author.username + " for " + arg[2]); //messages bannee
-				msg.author.send("You have banned " + msg.mentions.users.first().username + " for " + arg[2]); //messages banner
-            }
-          }
-          console.log(cmdLog("ban " + arg[1], msg));
-        }else{
-          msg.channel.send(perm);
-        }
-      }
-	//say (says what you say)
-    else if (cmd("say", msg)) {
-		if(role(msg.member)) {
-			msg.channel.send(sentence);
-		}else{
-			msg.channel.send(perm);
-		}
-	 console.log(cmdLog("say", msg));
-    }
-    //warn (warns users sending message both to warnee and warner)
-    else if(cmd("warn", msg)) {
-        if (role(msg.member)) {
-          if (arg.length > 3){
-            //too many arguments
-            msg.channel.send("Too many arguments. To use this command do: ``b!warn [@user-to-be-warned] [reason]``. For more than one word in a warn reason use _ or - instead of a space");
-          }else{
-            if (msg.guild.member(msg.mentions.users.first()) === null) {
-              //checks if no user is mentioned
-              msg.channel.send("No proper user mentioned! Use the following syntax! ``b!warn [@user-to-be-warned] [reason]``")
-            }else{
-              msg.mentions.users.first().send("You are warned by " + msg.author.username + " for " + arg[2]); //messages the warnee
-              msg.author.send("You are warning " + msg.mentions.users.first().username + " for " + arg[2]); //messages the warner
-              console.log(cmdLog("warn " + msg.mentions.users.first().username, msg))
-            }
-          }
-        }else {
-          msg.channel.send(perm);
-        }
-      }
-	//repeat (says what you say x times)
-    else if (cmd("repeat", msg)) {
-		if (role(msg.member)) {
-			var x ="";
-			for (var i = 2; i < arg.length; i++) {
-				x = x + " " + arg[i];
-			}
-			for (var i = 0; i < arg[1]; i++) {
-				msg.channel.send(x);
-			}
-		}else{
-			msg.channel.send(perm);
-		}
-	 console.log(cmdLog("repeat " + x + " " + arg[1] + " times", msg));
-	}
 });
