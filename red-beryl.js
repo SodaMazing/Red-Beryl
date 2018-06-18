@@ -1,5 +1,7 @@
 //Red Beryl
 
+const game = require('./activity.json');
+
 var Discord = require("discord.js");
 	bot = new Discord.Client();
 	pre = "b!";
@@ -26,7 +28,7 @@ function cmdLog(x, msg){
   Things to do when a login is successful*/
 bot.on('ready', () => {
   console.log('Ready'); //Login Message
-  bot.user.setActivity('Game of Thrones', { type: 'WATCHING' });
+  bot.user.setActivity(activity.name, { type: activity.type });
 });
 
 /*Login --
